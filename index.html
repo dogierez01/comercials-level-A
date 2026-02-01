@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Audio Learning App</title>
+    <title>Commercials Level A</title>
     <style>
         /* DARK MODE & LAYOUT */
         /* padding-top: 140px ensures the list doesn't get hidden behind the player */
@@ -59,9 +59,10 @@
 <script>
     const USER = "dogierez01";
     
-    // I FIXED THIS LINE FOR YOU BELOW:
+    // ▼▼▼ I HAVE TYPED THE CORRECT NAME FOR YOU HERE ▼▼▼
     const REPO = "comercials-level-A"; 
-    
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
     const BRANCH = "main";
     const API_URL = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
     const RAW_URL = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/`;
@@ -144,4 +145,21 @@
     function play(filename) { 
         player.src = RAW_URL + encodeURIComponent(filename); 
         player.play(); 
-        nowPlaying
+        nowPlaying.innerText = "Playing: " + decodeURIComponent(filename).replace(/\.[^/.]+$/, "").replace(/_/g, " ");
+        window.scrollTo({top: 0, behavior: 'smooth'}); 
+    }
+    
+    function openModal(src) { if(src && !src.includes("placeholder")) { modal.style.display = "flex"; modalImg.src = src; } }
+    function closeModal() { modal.style.display = "none"; }
+    function filter(q) { 
+        let cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            let name = card.querySelector('.name').innerText.toLowerCase();
+            card.style.display = name.includes(q.toLowerCase()) ? 'flex' : 'none';
+        });
+    }
+    
+    init();
+</script>
+</body>
+</html>
