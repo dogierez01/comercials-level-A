@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commercials Level A</title>
     <style>
         /* DARK MODE & LAYOUT */
-        /* padding-top: 140px ensures the list doesn't get hidden behind the player */
         body { font-family: -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 20px; padding-top: 140px; max-width: 600px; margin: 0 auto; }
         
         /* STICKY PLAYER (Top) */
@@ -36,8 +35,8 @@
         
         /* FULL SCREEN IMAGE */
         #modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); align-items: center; justify-content: center; flex-direction: column; }
-        #modal img { max-width: 95%; max-height: 80vh; border-radius: 8px; }
-        #close-btn { color: white; font-size: 18px; margin-top: 20px; padding: 10px 30px; background: #333; border-radius: 30px; cursor: pointer; }
+        #modal img { max-width: 95%; max-height: 80vh; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        #close-btn { color: white; font-size: 18px; margin-top: 20px; padding: 10px 30px; background: #333; border-radius: 30px; cursor: pointer; border: 1px solid #555; }
     </style>
 </head>
 <body>
@@ -51,7 +50,7 @@
     <div id="list"></div>
     <div id="status">Loading...</div>
 
-    <div id="modal" onclick="closeModal()">
+    <div id="modal" onclick="if(event.target.id === 'modal' || event.target.id === 'close-btn') closeModal()">
         <img id="modal-img">
         <div id="close-btn">Close Image</div>
     </div>
@@ -59,9 +58,9 @@
 <script>
     const USER = "dogierez01";
     
-    // ▼▼▼ I HAVE TYPED THE CORRECT NAME FOR YOU HERE ▼▼▼
+    // ▼▼▼ YOUR REPO IS SAFE HERE ▼▼▼
     const REPO = "comercials-level-A"; 
-    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
     const BRANCH = "main";
     const API_URL = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
