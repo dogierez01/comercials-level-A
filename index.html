@@ -59,10 +59,9 @@
 <script>
     const USER = "dogierez01";
     
-    // ▼▼▼ CHANGE THIS TO YOUR NEW REPO NAME ▼▼▼
-    const REPO = "freedom-fighters"; 
-    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
+    // I FIXED THIS LINE FOR YOU BELOW:
+    const REPO = "comercials-level-A"; 
+    
     const BRANCH = "main";
     const API_URL = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
     const RAW_URL = `https://raw.githubusercontent.com/${USER}/${REPO}/${BRANCH}/`;
@@ -145,21 +144,4 @@
     function play(filename) { 
         player.src = RAW_URL + encodeURIComponent(filename); 
         player.play(); 
-        nowPlaying.innerText = "Playing: " + decodeURIComponent(filename).replace(/\.[^/.]+$/, "").replace(/_/g, " ");
-        window.scrollTo({top: 0, behavior: 'smooth'}); 
-    }
-    
-    function openModal(src) { if(src && !src.includes("placeholder")) { modal.style.display = "flex"; modalImg.src = src; } }
-    function closeModal() { modal.style.display = "none"; }
-    function filter(q) { 
-        let cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            let name = card.querySelector('.name').innerText.toLowerCase();
-            card.style.display = name.includes(q.toLowerCase()) ? 'flex' : 'none';
-        });
-    }
-    
-    init();
-</script>
-</body>
-</html>
+        nowPlaying
